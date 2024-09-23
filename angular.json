@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-cotacao": {
+    "calculo-cotacao": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/angular-cotacao",
+            "outputPath": "dist/calculo-cotacao",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -35,7 +35,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/custom-theme.scss",
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": []
           },
@@ -67,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-cotacao:build:production"
+              "buildTarget": "calculo-cotacao:build:production"
             },
             "development": {
-              "buildTarget": "angular-cotacao:build:development"
+              "buildTarget": "calculo-cotacao:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "angular-cotacao:build"
+            "buildTarget": "calculo-cotacao:build"
           }
         },
         "test": {
@@ -94,7 +96,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": []
           }

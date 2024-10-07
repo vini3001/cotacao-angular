@@ -58,6 +58,7 @@
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
           <button style="width: fit-content;" type="submit" class="btn btn-primary">Calcular</button>
+          <button (click)="openList()" style="width: fit-content; margin-top: 14px;" class="btn btn-primary">Salvos</button>
         </div>
       <div style="gap: 5px;">
         <div>
@@ -79,3 +80,4 @@
   </section>
 </body>
 </html>
+<router-outlet></router-outlet>

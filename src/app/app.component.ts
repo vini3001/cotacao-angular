@@ -12,9 +12,7 @@ import { Cotacao } from './models/Cotacao';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  standalone: true,
   providers: [provideNativeDateAdapter()],  
-  imports: [MatFormFieldModule, MatDatepickerModule, MatInputModule, FormsModule, ReactiveFormsModule, JsonPipe],
   styleUrl: './app.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -24,12 +22,15 @@ export class AppComponent {
   constructor(private service: CotacaoService, private router: Router) {}
 
   submitForm() {
-    console.log(`teste`)
     this.service.InserirCotacao(this.cotacao).subscribe({
       next: () => {
         alert('cotação adicionada com sucesso')
       }
     })
+  }
+
+  openList() {
+    this.router.navigate(['/list-cotations'])
   }
 
   title = 'angular-cotacao';

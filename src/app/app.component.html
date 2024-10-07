@@ -45,35 +45,36 @@
   <section class="shadow p-5 mb-5 bg-white rounded">
     <h4>Cálculo de cotação</h4>
     <div style="width: fit-content; margin-top: 30px;" id="form-principal">
-      <form id="form-cotacao">
+      <form id="form-cotacao" style="gap: 50px;" (ngSubmit)="submitForm()">
         <div>
               <p>Informe o valor a ser calculado: </p>
-              <input style="margin-bottom: 10px; height: fit-content;" placeholder="R$"/>
+              <input type="number" name="valor" [(ngModel)]="cotacao.valor"  style="margin-bottom: 10px; height: fit-content;" placeholder="R$"/>
+
               <p>Digite a data de referência: </p>
               <mat-form-field style="height: 70px; width: 100%;">
                 <mat-label>Digite uma data</mat-label>
-                <input style="width: 100%;" placeholder="DD/MM/AAAA" matInput [matDatepicker]="picker">
+                <input name="data_registro" [(ngModel)]="cotacao.data_registro" style="width: 100%;" placeholder="DD/MM/AAAA" matInput [matDatepicker]="picker">
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
           <button style="width: fit-content;" type="submit" class="btn btn-primary">Calcular</button>
         </div>
-      </form>
       <div style="gap: 5px;">
         <div>
           <label>Dólar: </label>
-          <input placeholder="$"/>
+          <input type="text" name="tipo_moeda" [(ngModel)]="cotacao.tipo_moeda" placeholder="$"/>
         </div>
         <div>
           <label>Euro: </label>
-          <input placeholder="€"/>
+          <input type="text" name="tipo_moeda" [(ngModel)]="cotacao.tipo_moeda" placeholder="€"/>
         </div>
         <div>
           <label>Pesos: </label>
-          <input placeholder="₱"/>
+          <input type="text" name="tipo_moeda" [(ngModel)]="cotacao.tipo_moeda" placeholder="₱"/>
         </div>
         <button style="width: fit-content; margin-top: 14px;" type="submit" class="btn btn-success">Gravar</button>
       </div>
+    </form>
     </div>
   </section>
 </body>

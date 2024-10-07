@@ -1,0 +1,6 @@
+{
+    "/cotacao": {
+      "target": "http://localhost:3000/cotacao",
+      "secure": false
+    }
+  }

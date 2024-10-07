@@ -6,12 +6,12 @@ import { Cotacao } from './models/Cotacao';
   providedIn: 'root'
 })
 export class CotacaoService {
-  urlApi = 'localhost:3000/cotacao'
+  urlApi = 'http://localhost:3000/cotacoes'
   constructor(private http: HttpClient) {
   }
 
-  public inserir(cotacao: Cotacao) {
+  public InserirCotacao(cotacao: Cotacao) {
     console.log('rota adicionar' + JSON.stringify(cotacao))
-    return this.http.post<boolean>(this.urlApi + 'calculo', cotacao)
+    return this.http.post<boolean>(this.urlApi, cotacao)
   }
 }

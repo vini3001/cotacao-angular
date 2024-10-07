@@ -72,8 +72,11 @@
               "buildTarget": "calculo-cotacao:build:production"
             },
             "development": {
-              "buildTarget": "calculo-cotacao:build:development"
+              "buildTarget": "calculo-cotacao:build:development"   
             }
+          },
+          "options": {
+            "proxyConfig": "proxy.config.json"
           },
           "defaultConfiguration": "development"
         },

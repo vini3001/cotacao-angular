@@ -16,26 +16,4 @@ import { Cotacao } from './models/Cotacao';
   styleUrl: './app.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {
-  cotacao: Cotacao = {};
-
-  constructor(private service: CotacaoService, private router: Router) {}
-
-  submitForm() {
-    this.service.InserirCotacao(this.cotacao).subscribe({
-      next: () => {
-        alert('cotação adicionada com sucesso')
-      }
-    })
-  }
-
-  openList() {
-    this.router.navigate(['/list-cotations'])
-  }
-
-  title = 'angular-cotacao';
-  readonly range = new FormGroup({
-    start: new FormControl<Date | null>(null),
-    end: new FormControl<Date | null>(null),
-  });
-}
+export class AppComponent {}

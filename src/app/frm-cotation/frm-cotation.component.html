@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <head>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+        overflow-y: hidden;
+        align-items: center;
+        justify-content: center;
+      }
+
+      input {
+        border-radius: 8px;
+        border: 0.5px solid rgba(0,0,0,0.2);
+        /* width: 50%; */
+      }
+
+      #form-principal {
+        display: flex;
+        gap: 70px;
+        flex-direction: row;
+        align-items: start;
+      }
+
+      #form-principal div {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #form-cotacao {
+        display: flex;
+        flex-direction: row;
+      }
+    </style>
+  </head>
+  <section class="shadow p-5 mb-5 bg-white rounded">
+    <h4>Cálculo de cotação</h4>
+    <div style="width: fit-content; margin-top: 30px;" id="form-principal">
+      <form id="form-cotacao" style="gap: 50px;" (ngSubmit)="submitForm()">
+        <div>
+              <p>Informe o valor a ser calculado: </p>
+              <input type="number" name="valor" [(ngModel)]="cotacao.valor"  style="margin-bottom: 10px; height: fit-content;" placeholder="R$"/>
+
+              <p>Digite a data de referência: </p>
+              <mat-form-field style="height: 70px; width: 100%;">
+                <mat-label>Digite uma data</mat-label>
+                <input name="data_registro" [(ngModel)]="cotacao.data_registro" style="width: 100%;" placeholder="DD/MM/AAAA" matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+          <button style="width: fit-content;" type="submit" class="btn btn-primary">Calcular</button>
+          <button (click)="openList()" type="button" style="width: fit-content; margin-top: 14px;" class="btn btn-primary">Salvos</button>
+        </div>
+      <div style="gap: 5px;">
+        <div>
+          <label>Dólar: </label>
+          <input type="text" name="tipo_moeda" [(ngModel)]="cotacao.tipo_moeda" placeholder="$"/>
+        </div>
+        <div>
+          <label>Euro: </label>
+          <input type="text" name="tipo_moeda" [(ngModel)]="cotacao.tipo_moeda" placeholder="€"/>
+        </div>
+        <div>
+          <label>Pesos: </label>
+          <input type="text" name="tipo_moeda" [(ngModel)]="cotacao.tipo_moeda" placeholder="₱"/>
+        </div>
+        <button style="width: fit-content; margin-top: 14px;" type="submit" class="btn btn-success">Gravar</button>
+      </div>
+    </form>
+    </div>
+  </section>
+</body>
+</html>

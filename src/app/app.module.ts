@@ -3,7 +3,7 @@ import { bootstrapApplication, BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { provideAnimations } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { JsonPipe } from '@angular/common';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FrmCotationComponent } from './frm-cotation/frm-cotation.component';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -23,7 +24,8 @@ bootstrapApplication(AppComponent, {
 @NgModule({
   declarations: [
     AppComponent,
-    LstCotationsComponent
+    LstCotationsComponent,
+    FrmCotationComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,7 @@ bootstrapApplication(AppComponent, {
     MatInputModule, 
     FormsModule, 
     ReactiveFormsModule, 
+    BrowserAnimationsModule,
     JsonPipe,
     RouterModule
   ],

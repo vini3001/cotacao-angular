@@ -9,7 +9,7 @@ import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { LstCotationsComponent } from './lst-cotations/lst-cotations.component';
 import { RouterModule } from '@angular/router';
-import { JsonPipe } from '@angular/common';
+import { CommonModule, JsonPipe } from '@angular/common';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FrmCotationComponent } from './frm-cotation/frm-cotation.component';
@@ -40,6 +40,7 @@ bootstrapApplication(AppComponent, {
     ReactiveFormsModule, 
     BrowserAnimationsModule,
     JsonPipe,
+    CommonModule,
     RouterModule
   ],
   providers: [],

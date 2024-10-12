@@ -1,1 +1,62 @@
-<p>lst-cotations works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+        overflow-y: hidden;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="shadow p-5 mb-5 bg-white rounded">
+       <h4 style="margin-bottom: 30px;">Registro de cotações</h4>
+        <table class="table align-middle mb-0 bg-white table-bordered">
+            <thead>
+              <tr class="table-secondary">
+                <th>Dólar</th>
+                <th>Euro</th>
+                <th>Pesos</th>
+                <th>Valor</th>
+                <th>Data Apuração</th>
+                <th>Data Registro</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let cotacao of cotacoes">
+              <tr>
+                <td>
+                  <p class="text-muted mb-0">{{cotacao.valor_dolar | currency : 'BRL'}}</p>
+                </td>
+                <td>
+                  <p class="text-muted mb-0">{{cotacao.valor_euro | currency : 'BRL'}}</p>
+                </td>
+                <td>
+                  <p class="text-muted mb-0">{{cotacao.valor_pesos | currency : 'BRL'}}</p>
+                </td>
+                <td>
+                    <p class="text-muted mb-0">{{cotacao.valor | currency : 'BRL'}}</p>
+                </td>
+                <td>
+                    <p class="text-muted mb-0">{{cotacao.data_apuracao | date: 'dd/MM/yyyy'}}</p>
+                </td>
+                <td>
+                    <p class="text-muted mb-0">{{cotacao.data_registro | date: 'dd/MM/yyyy'}}</p>
+                </td>
+                <td>
+                    <button style="width: fit-content;" class="btn btn-danger">Excluir</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </section>
+</body>
+</html>

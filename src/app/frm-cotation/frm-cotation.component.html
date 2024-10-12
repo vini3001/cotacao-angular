@@ -53,25 +53,27 @@
               <p>Digite a data de referência: </p>
               <mat-form-field style="height: 70px; width: 100%;">
                 <mat-label>Digite uma data</mat-label>
-                <input name="data_registro" [(ngModel)]="cotacao.data_registro" style="width: 100%;" placeholder="DD/MM/AAAA" matInput [matDatepicker]="picker">
+                <input name="data_apuracao" [(ngModel)]="cotacao.data_apuracao" style="width: 100%;" placeholder="DD/MM/AAAA" matInput [matDatepicker]="picker">
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
-          <button style="width: fit-content;" type="submit" class="btn btn-primary">Calcular</button>
-          <button (click)="openList()" type="button" style="width: fit-content; margin-top: 14px;" class="btn btn-primary">Salvos</button>
+          <div style="display: flex; flex-direction: row; gap: 10px;">
+            <button (click)="onClick()" style="width: fit-content; margin-top: 14px;" type="button" class="btn btn-primary">Calcular</button>
+            <button (click)="openList()" type="button" style="width: fit-content; margin-top: 14px;" class="btn btn-primary">Registro</button>
+          </div>
         </div>
       <div style="gap: 5px;">
         <div>
           <label>Dólar: </label>
-          <input type="text" name="tipo_moeda" [(ngModel)]="cotacao.tipo_moeda" placeholder="$"/>
+          <input type="number" name="valor_dolar" [(ngModel)]="cotacao.valor_dolar" placeholder="$"/>
         </div>
         <div>
           <label>Euro: </label>
-          <input type="text" name="tipo_moeda" [(ngModel)]="cotacao.tipo_moeda" placeholder="€"/>
+          <input type="number" name="valor_euro" [(ngModel)]="cotacao.valor_euro" placeholder="€"/>
         </div>
         <div>
           <label>Pesos: </label>
-          <input type="text" name="tipo_moeda" [(ngModel)]="cotacao.tipo_moeda" placeholder="₱"/>
+          <input type="number" name="valor_pesos" [(ngModel)]="cotacao.valor_pesos" placeholder="₱"/>
         </div>
         <button style="width: fit-content; margin-top: 14px;" type="submit" class="btn btn-success">Gravar</button>
       </div>

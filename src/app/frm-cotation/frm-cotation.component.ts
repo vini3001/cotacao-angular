@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Cotacao } from '../models/Cotacao';
 import { CotacaoService } from '../cotacao.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-frm-cotation',
@@ -14,10 +15,10 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 export class FrmCotationComponent {
   cotacao: Cotacao = {};
 
-  constructor(private service: CotacaoService, private router: Router) {}
+  constructor(private serviceCotacao: CotacaoService,private cd: ChangeDetectorRef, private api: ApiService, private router: Router) {}
 
   submitForm() {
-    this.service.InserirCotacao(this.cotacao).subscribe({
+    this.serviceCotacao.InserirCotacao(this.cotacao).subscribe({
       next: () => {
         alert('cotação adicionada com sucesso')
       }
@@ -26,6 +27,32 @@ export class FrmCotationComponent {
 
   openList() {
     this.router.navigate(['/list-cotations'])
+  }
+
+  onClick() {
+    this.cd.detectChanges();
+    let startDate = this.cotacao.data_apuracao!.getFullYear().toString() + (this.cotacao.data_apuracao!.getMonth() + 1).toString().padStart(2, '0') + (this.cotacao.data_apuracao!.getDate()).toString().padStart(2, '0')
+
+    this.api.BuscarDolar(startDate).subscribe({
+      next: (coin) => {
+        this.cotacao.valor_dolar = parseFloat((parseFloat(coin[0].bid) * this.cotacao.valor!).toFixed(2))
+        this.cd.detectChanges();
+      }
+    })
+    this.api.BuscarEuro(startDate).subscribe({
+      next: (coin) => {
+        this.cotacao.valor_euro = parseFloat((parseFloat(coin[0].bid) * this.cotacao.valor!).toFixed(2))
+        this.cd.detectChanges();
+      }
+    })
+    this.api.BuscarPesos(startDate).subscribe({
+      next: (coin) => {
+        this.cotacao.valor_pesos = parseFloat((parseFloat(coin[0].bid) * this.cotacao.valor!).toFixed(2))
+        this.cd.detectChanges();
+      }
+    })
+
+
   }
 
   title = 'angular-cotacao';

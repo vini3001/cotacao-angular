@@ -65,15 +65,15 @@
       <div style="gap: 5px;">
         <div>
           <label>Dólar: </label>
-          <input type="number" name="valor_dolar" [(ngModel)]="cotacao.valor_dolar" placeholder="$"/>
+          <input type="number" name="valor_dolar" [(ngModel)]="cotacao.valor_dolar" placeholder="$" readonly/>
         </div>
         <div>
           <label>Euro: </label>
-          <input type="number" name="valor_euro" [(ngModel)]="cotacao.valor_euro" placeholder="€"/>
+          <input type="number" name="valor_euro" [(ngModel)]="cotacao.valor_euro" placeholder="€" readonly/>
         </div>
         <div>
           <label>Pesos: </label>
-          <input type="number" name="valor_pesos" [(ngModel)]="cotacao.valor_pesos" placeholder="₱"/>
+          <input type="number" name="valor_pesos" [(ngModel)]="cotacao.valor_pesos" placeholder="₱" readonly/>
         </div>
         <button style="width: fit-content; margin-top: 14px;" type="submit" class="btn btn-success">Gravar</button>
       </div>

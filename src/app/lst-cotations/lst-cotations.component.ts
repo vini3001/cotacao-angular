@@ -17,6 +17,10 @@ export class LstCotationsComponent implements OnInit{
     this.obterDados()
   }
 
+  openForm() {
+    this.router.navigate(['/'])
+  }
+
   obterDados() {
     this.service.ListarCotacao()
     .subscribe({
